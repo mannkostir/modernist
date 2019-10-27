@@ -1,0 +1,496 @@
+@import "libs"
+@import "fonts"
+@import "vars"
+@import "mixins/_slick-arrows"
+
+html
+	font-size: 20px
+	height: 100%
+body
+	font-family: $default-font
+	color: $text
+	background-attachment: fixed
+	background-repeat: no-repeat
+	background-position: center
+	background-size: cover
+	height: 100%
+::placeholder
+	font-size: 1em
+	color: #989898
+input:focus,
+textarea:focus,
+button:focus
+	outline: none
+img
+	width: 100%
+h1, h2, h3, h4, h5, h6
+	font-family: "Georgia Bold"
+h1
+	font-size: 3.5rem
+	color: #fff
+h2
+	font-size: 2.2rem
+	color: #fff
+	text-transform: uppercase
+h3
+	font-size: 2rem
+	color: #fff
+	text-transform: uppercase
+h4
+	font-size: 1.6rem
+	color: #fff
+h5
+	font-size: 1.2rem
+	color: #fff
+h6
+	font-size: 1rem
+	color: #fff
+	text-transform: uppercase
+ul
+	list-style: none
+	margin: 0
+	padding: 0
+a:hover
+	text-decoration: none
+.fade
+	display: block !important
+.container-fluid
+	min-width: 360px
+	overflow-x: hidden
+	padding: 0
+.container
+	height: auto
+	min-width: 360px
+.row
+	margin: 0
+
+.main-header
+	position: relative
+	padding: 0 15px
+	padding-bottom: 45px
+	padding-top: 30px
+	border-top: 3px solid $light-green
+	> .overlay
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background-color: rgba(77, 76, 76, 0.8)
+		z-index: -1
+.top-nav
+	display: inline-block
+.navbar-toggle
+	margin: 5px 0 10px 5px
+	background-color: transparent
+	border: none
+	outline: none
+.navbar-toggle-icon
+	width: 30px
+	height: 20px
+	position: relative
+	margin: 0
+	transform: rotate(0deg)
+	transition: .5s linear
+	span
+		display: block
+		position: absolute
+		height: 3px
+		width: 100%
+		border-radius: 9px
+		opacity: 1
+		left: 0
+		transform: rotate(0deg)
+		transition: .25s ease-in-out
+		background-color: #fff
+		&:nth-child(1)
+			top: 0
+		&:nth-child(2)
+			top: 10px
+		&:nth-child(3)
+			top: 20px
+	&.active
+		span:nth-child(1)
+			top: 11px
+			transform: rotate(135deg)
+		span:nth-child(2)
+			opacity: 0
+			left: -60px
+		span:nth-child(3)
+			top: 11px
+			transform: rotate(-135deg)
+.logo span
+	font-size: 2.2em
+	color: #fff
+.logo p
+	font-size: 0.85em
+	color: #979797
+	line-height: 0
+.menu
+	display: none
+	position: relative
+	flex-direction: column
+	align-content: middle
+	li
+		a, button
+			display: block
+			color: #fff
+			text-transform: uppercase
+			font-size: 1.2em
+			padding: 5px 15px
+			border-radius: 8px
+			border: none
+			outline: none
+			background-color: transparent
+			transition: 0.2s ease
+		a:hover, button:hover
+			background-color: $light-green
+.dropdown-toggle
+	display: block
+	position: relative
+	.dropdown-menu
+		display: none
+		position: absolute
+		border-radius: 10px
+		width: 100%
+		z-index: 1
+		a
+			background-color: #000
+			text-transform: none
+	.dropdown-toggle-icon 
+		span
+			display: inline-block
+			transform: rotate(90deg)
+			transition: .25s linear
+			font-weight: 900
+	.dropdown-toggle-icon.active
+		background-color: $light-green
+		span
+			transform: rotate(-90deg)
+
+.slider .traffic-light
+	margin: auto
+	position: absolute
+	display: none
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+	width: 155px
+	height: 205px
+	position: absolute
+	font-size: 206px
+	z-index: 100
+	i
+		margin: 0
+		padding: 0
+	&.visible
+		display: block
+	& .signal
+		position: absolute
+		left: 57px
+		display: block
+		border-radius: 50%
+		height: 42px
+		width: 42px
+		z-index: 10
+		&.stop
+			top: 70px
+			background-color: red
+			box-shadow: 0 0 30px red
+		&.go
+			bottom: -10px
+			background-color: green
+			box-shadow: 0 0 30px green
+	
+.slider
+	display: none
+	margin: 30px
+	.col
+		flex-basis: auto
+.slides-list
+	height: 100%
+	.slide
+		position: relative
+		height: auto
+		margin-bottom: 40px
+		display: flex !important
+		flex-direction: column !important
+		justify-content: center !important
+		align-items: center
+		.slick-caption
+			width: 100%
+			align-self: center
+			h1
+				line-height: 1
+				margin: 0 0 15px 0
+			p
+				font-size: 1em
+				color: lighten(#999797, 20%)
+			button
+				font-size: 1em
+				color: #fff
+				background-color: $light-green
+				border: none
+				padding: 5px 15px
+				border-radius: 10px
+				margin-top: 15px
+				&:active
+					box-shadow: 0 0 10px $light-green
+		.slick-image
+			width: 100%
+			max-width: 400px
+			height: 300px
+			margin-bottom: 20px
+			background-color: transparent
+			border: 20px solid #6b6b6b
+			border-radius: 50%
+			filter: grayscale(100%)
+			transition: 1s linear
+			&.col
+				padding: 0
+	&:hover .slick-image
+		filter: none
+		cursor: pointer
+.slider .slick-control
+	position: absolute
+	bottom: 20px
+	left: 0
+	right: 0
+	margin: auto
+	display: flex
+	width: 60px
+	height: 60px
+	font-size: 20px
+	border-radius: 50%
+	background-color: #000
+	align-items: center
+	justify-content: center
+	outline: none
+	border: none
+	background-color: darken(#6b6b6b, 35%)
+	color: #fff
+	opacity: 0.8
+	box-shadow: 0 0 5px #000
+	&:active
+		box-shadow: 0 0 1px #000
+	&.disabled
+		box-shadow: none
+		&:active
+			box-shadow: none
+.slick-prev::before
+	content: ""
+	width: 30px
+	height: 30px
+	border-top: 7px solid $light-green
+	position: absolute
+	cursor: pointer
+	border-radius: 5px
+	border-left: 7px solid $light-green
+	left: 5px
+	transform: rotate(-45deg)
+.slick-next::before
+	content: ""
+	width: 30px
+	height: 30px
+	border-top: 7px solid $light-green
+	position: absolute
+	cursor: pointer
+	border-radius: 5px
+	border-right: 7px solid $light-green
+	right: 5px
+	transform: rotate(45deg)
+.slick-loading .slick-list
+	background: url("../img/ajax_loader/ajax-loader.gif")
+main
+	position: relative
+	> .overlay
+		position: absolute
+		top: 0
+		left: 0
+		bottom: 0
+		right: 0
+		background-color: rgba(232, 232, 232, 0.6)
+		z-index: -1
+.services
+	padding-top: 60px
+	padding-bottom: 35px
+	li
+		opacity: 0
+		text-align: center
+		background-color: #fff
+		padding-top: 20px
+		margin-bottom: 40px
+		transition: 1s ease
+		&:nth-child(1)
+			transform: translateX(-100%)
+		&:nth-child(2)
+			transform: translateX(-100%)
+		&:nth-child(3)
+			transform: translateX(100%)
+		&:nth-child(4)
+			transform: translateX(100%)
+		&.fade
+			opacity: 1
+			transform: translateX(0)
+			transform: translateY(0)
+		h3
+			font-weight: 400
+			color: #333
+		i
+			font-size: 96px
+			color: #333333
+		p
+			font-size: 1.3em
+	li:hover
+		background-color: $light-green
+		color: #fff
+		cursor: pointer
+		h3
+			color: #fff
+		i
+			color: #fff
+		p
+			color: #fff
+
+
+.latest-work
+	text-align: center
+	.latest-work-header
+		position: relative
+		display: inline-block
+		.header-title
+			display: inline-block
+			padding: 10px
+			margin: 0
+			background-color: #303030
+			border-radius: 15px
+			transition: 1s linear
+			transform: translateX(-100%)
+			opacity: 0
+			&.fade
+				transform: translateX(0)
+				opacity: 1
+		.header-title-copy
+			display: inline-block
+			position: absolute
+			top: 0
+			left: 0
+			bottom: 0
+			right: 0
+			margin: auto
+			background-color: #303030
+			width: 100%
+			height: 100%
+			border-radius: 15px
+			transition: 1s ease
+			transform: translateX(100%)
+			opacity: 0
+			z-index: -1
+			&.fade
+				transform: translateX(0)
+				opacity: 1
+.latest-work-list 
+	margin-top: 60px
+	li
+		position: relative
+		opacity: 0
+		margin-bottom: 80px
+		padding: 0
+		margin-right: 20px
+		box-shadow: 0 0 0 5px #fff
+		height: 300px
+		transition: 1s ease-in-out
+		&.fade
+			opacity: 1
+		&::after
+			content: "LOREM IPSUM DOLOR"
+			position: absolute
+			bottom: 0
+			left: 0
+			right: 0
+			background-color: #000
+			color: #fff
+			opacity: 0.6
+			padding: 5px 0
+		&:hover 
+			box-shadow: 0 0 0 5px $light-green
+			cursor: pointer
+			&::after
+				display: none
+			img
+				filter: none
+				transition: 1s ease
+		img
+			position: absolute
+			top: 0
+			left: 0
+			display: inline-block
+			width: 100%
+			height: 100%
+			background-color: #353535
+			filter: grayscale(100%)
+
+footer
+	background-color: #303030
+	font-size: 1em
+	h5
+		font-weight: 400
+		margin-top: 35px
+		margin-bottom: 30px
+	a
+		color: $light-green
+		&:hover
+			color: $light-green
+			text-decoration: underline
+	.blog
+		h6
+			color: $light-green
+			text-transform: none
+			margin-bottom: 15px
+		.author
+			line-height: 0.7
+			font-size: 0.8em
+			span
+				color: $light-green
+		.date
+			font-size: 0.8em
+			line-height: 0
+		.more-link
+			color: $light-green
+	.quick-links ul
+		li
+			border-bottom: 1px solid #404040
+			padding: 7px 0
+			&:first-child
+				padding-top: 0
+	.contacts
+		input, textarea
+			background-color: #222
+			border: none
+			border-radius: 12px
+			padding: 10px
+			margin-bottom: 10px
+			width: 100%
+			color: $light-green
+		button
+			background-color: $light-green
+			border: none
+			text-transform: uppercase
+			color: #303030
+			font-weight: 900
+			padding: 5px 10px
+			border-radius: 6px
+			&:active
+				color: #fff
+.copyright
+	background-color: #2b2b2b
+	font-size: 1em
+	min-height: 60px
+	margin-top: 40px
+	.row
+		padding: 20px 15px
+	p
+		margin: 0
+
+@import "media"
